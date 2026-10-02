@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>CocAttackReview</title>
-  <meta name="description" content="CocAttackReview is a personal local desktop tool for uploading and scheduling the developer's own YouTube videos.">
+  <meta name="description" content="CocAttackReview is a personal local desktop tool for uploading and scheduling the developer's own videos through YouTube API Services.">
   <style>
 :root {
   color-scheme: light dark;
@@ -28,14 +28,12 @@ main {
   margin: 0 auto;
   padding: 48px 24px 72px;
 }
-header {
-  margin-bottom: 32px;
-}
+header { margin-bottom: 24px; }
 nav {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
-  margin: 20px 0 36px;
+  margin: 18px 0 24px;
 }
 a { color: var(--link); }
 .card {
@@ -49,10 +47,24 @@ h1, h2, h3 { line-height: 1.25; }
 h1 { font-size: 2rem; margin-bottom: 8px; }
 h2 { margin-top: 38px; }
 small, .muted { color: var(--muted); }
-code {
-  background: rgba(255,255,255,.08);
-  padding: .12rem .35rem;
-  border-radius: 5px;
+.yt-attribution {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.yt-logo-link {
+  display: inline-block;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  line-height: 0;
+}
+.yt-logo-link img {
+  display: block;
+  width: 230px;
+  max-width: 100%;
+  height: auto;
 }
 footer {
   margin-top: 48px;
@@ -76,17 +88,40 @@ footer {
 <main>
   <header>
     <h1>CocAttackReview</h1>
-    <p class="muted">Personal YouTube publishing utility</p>
+    <p class="muted">Personal video publishing utility</p>
   </header>
 
-  <nav>
+  <nav aria-label="Site navigation">
     <a href="./">Home</a>
-    <a href="./privacy.html">Privacy Policy</a>
+    <a href="./privacy.html"><strong>Privacy Policy</strong></a>
     <a href="./terms.html">Terms of Use</a>
   </nav>
 
+  <section class="card" aria-labelledby="youtube-api-integration">
+    <h2 id="youtube-api-integration" style="margin-top:0">YouTube API integration</h2>
+    <div class="yt-attribution">
+      <a class="yt-logo-link"
+         href="https://www.youtube.com/channel/UCvsa9McXOV1hMVbAcRCO8DA"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Open the YouTube channel used by CocAttackReview">
+        <img src="https://developers.google.com/static/youtube/images/developed-with-youtube-sentence-case-dark.png"
+             alt="Developed with YouTube">
+      </a>
+      <div>
+        <p style="margin-top:0">
+          CocAttackReview uses YouTube API Services to publish content to the developer's own YouTube channel.
+        </p>
+        <p style="margin-bottom:0">
+          See our <a href="./privacy.html"><strong>Privacy Policy</strong></a>
+          for details about API data access, storage, security, and deletion.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section class="card">
-    <h2>About</h2>
+    <h2 style="margin-top:0">About</h2>
     <p>
       CocAttackReview is a private, locally operated desktop tool used by its developer
       to prepare, upload, and schedule Clash of Clans gameplay review videos on the
@@ -120,7 +155,7 @@ footer {
       OAuth credentials and workflow state are stored locally on the developer's computer.
       Refresh tokens and resumable-upload session information are protected using
       Windows user-level encryption. The tool does not sell API data, use it for advertising,
-      or provide it to third parties.
+      or provide it to unrelated third parties.
     </p>
     <p>
       See the <a href="./privacy.html">Privacy Policy</a> for details.
@@ -129,13 +164,7 @@ footer {
 
   <section>
     <h2>Contact</h2>
-    <p>
-      Contact: <strong>mbwa.coc@gmail.com</strong>
-    </p>
-    <p class="muted">
-      Replace the placeholder above with an email address you are comfortable publishing
-      before submitting this site for review.
-    </p>
+    <p>Contact: <strong>mbwa.coc@gmail.com</strong></p>
   </section>
 
   <footer>
